@@ -3,7 +3,7 @@ import { FaRegHeart } from "react-icons/fa6";
 
 function Likedpage({ likedSectionToggle, showLiked, savedQuotes, setSavedQuotes }) {
   const [quoteAtLeft, setQuoteAtLeft] = useState(
-    "I attribute my success to this: I never gave or took any excuse."
+    "❤️🗣️"
   );
 
   // Display selected quote on the left side

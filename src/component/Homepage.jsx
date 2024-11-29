@@ -13,8 +13,9 @@ function Homepage() {
   const [bigLike, setBigLike] = useState(false);
   const [savedQuotes, setSavedQuotes] = useState([]);
   const [showLiked, setShowLiked] = useState(false);
-  const [showWhiteOnHeart,setShowWhiteOnHeart] = useState(true)
-  // savedQuotes.
+
+
+
   const qouteFetch = async () => {
     const data = await fetch("https://quotes-api-self.vercel.app/quote");
     const respones = await data.json();
@@ -24,15 +25,8 @@ function Homepage() {
   };
 
 
-  const activeHeartToggle = () =>{
-    if(savedQuotes.length >= 1){
-      setShowWhiteOnHeart(true)
-    }
-  }
-
   useEffect(() => {
     qouteFetch();
-    activeHeartToggle()
   }, []);
 
   useEffect(() => {
