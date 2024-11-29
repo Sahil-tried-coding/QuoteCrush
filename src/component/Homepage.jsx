@@ -13,7 +13,7 @@ function Homepage() {
   const [bigLike, setBigLike] = useState(false);
   const [savedQuotes, setSavedQuotes] = useState([]);
   const [showLiked, setShowLiked] = useState(false);
-
+  const [showWhiteOnHeart,setShowWhiteOnHeart] = useState(true)
   // savedQuotes.
   const qouteFetch = async () => {
     const data = await fetch("https://quotes-api-self.vercel.app/quote");
@@ -23,8 +23,16 @@ function Homepage() {
     setLiked(false);
   };
 
+
+  const activeHeartToggle = () =>{
+    if(savedQuotes.length >= 1){
+      setShowWhiteOnHeart(true)
+    }
+  }
+
   useEffect(() => {
     qouteFetch();
+    activeHeartToggle()
   }, []);
 
   useEffect(() => {
@@ -129,7 +137,7 @@ function Homepage() {
             <div>~ {Author}</div>
           </div>
         </div>
-        <div className="sm:flex sm:justify-between sm:gap-4 flex justify-between gap-4">
+        <div className="sm:flex sm:justify-between sm:gap-4 flex justify-evenly items-center gap-4">
           <button
             onClick={qouteFetch}
             className="w-[200px] h-[60px] rounded-2xl p-2 bg-purple-600 sm:rounded-2xl sm:w-[250px] sm:p-2 sm:border-2 sm:border-dashed sm:border-white sm:bg-purple-500 sm:px-6 sm:py-3 sm:font-semibold sm:uppercase sm:text-white sm:transition-all sm:duration-300 sm:hover:translate-x-[-4px] sm:hover:translate-y-[-4px] sm:hover:rounded-md sm:hover:shadow-[4px_4px_0px_black] sm:active:translate-x-[0px] sm:active:translate-y-[0px] sm:active:rounded-2xl sm:active:shadow-none ml-3
@@ -155,7 +163,7 @@ border-2 items-center"
             />
           </button>
           {bigLike && (
-            <FaHeart className="text-white text-9xl absolute animate-pulse top-[40%] left-[40%] sm:text-white sm:text-9xl sm:absolute sm:animate-pulse sm:top-[40%] sm:left-[50%]" />
+            <FaHeart className="text-white text-9xl absolute animate-pulse top-[40%] left-[36%] sm:text-white sm:text-9xl sm:absolute sm:animate-pulse sm:top-[40%] sm:left-[50%]" />
           )}
         </div>
       </div>
@@ -164,6 +172,7 @@ border-2 items-center"
         likedSectionToggle={likedSectionToggle}
         showLiked={showLiked}
         savedQuotes={savedQuotes}
+     
       />
     </div>
   );

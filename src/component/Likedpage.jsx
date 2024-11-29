@@ -37,17 +37,30 @@ function Likedpage({ likedSectionToggle, showLiked, savedQuotes, setSavedQuotes 
         {/* Toggle Liked Section */}
         <FaRegHeart
           onClick={likedSectionToggle}
-          className="z-10 text-red-600 font-bold text-4xl absolute top-9 left-9 cursor-pointer "
+          className="text-red-600 z-10 text-4xl absolute
+top-9
+left-9
+cursor-pointer sm:z-10 sm:text-red-600 sm:font-bold sm:text-4xl sm:absolute sm:top-9 sm:left-9 sm:cursor-pointer"
         />
         {showLiked ? (
           <div>
             {/* Liked Quotes List */}
-            <div className="z-10 overflow-y-scroll h-[100vh] w-[50vw] absolute top-0 right-0 backdrop-blur-3xl bg-custom-gradient transition-all duration-300 ease-out">
+            <div className="z-10 overflow-y-scroll min-h-[50%] w-full absolute bottom-0 backdrop-blur-3xl
+bg-custom-gradient
+transition-all
+duration-300
+ease-out sm:z-10 sm:overflow-y-scroll sm:h-[100vh] sm:w-[50vw] sm:absolute sm:top-0 sm:right-0 sm:backdrop-blur-3xl sm:bg-custom-gradient sm:transition-all sm:duration-300 sm:ease-out">
               {savedQuotes.map((item, index) => (
                 <div
                   key={index}
                   onClick={() => quoteAtLeftSide(item)}
-                  className="cursor-pointer border-b-2 border-black p-2 rounded-md  hover:bg-black hover:text-white"
+                  className="sm:cursor-pointer sm:border-b-2 sm:border-black sm:p-2 sm:rounded-md sm:hover:bg-black sm:hover:text-white cursor-pointer
+border-b-2
+order-black
+p-2
+rounded-md
+hover:bg-black
+hover:text-white"
                 >
                   {item}
                 </div>
@@ -55,13 +68,17 @@ function Likedpage({ likedSectionToggle, showLiked, savedQuotes, setSavedQuotes 
             </div>
 
             {/* Quote Display and Remove Button */}
-            <div className="h-screen w-[50vw] absolute top-0 left-0 flex flex-col items-center justify-center">
-              <div className="bg-white text-xl max-w-max backdrop-blur-lg mx-8 max-h-max p-3 font-semibold">
+            <div className="max-h-[50%] w-full absolute top-[8.2rem]  flex flex-col items-center justify-center sm:h-screen sm:w-[50vw] sm:absolute sm:top-0 sm:left-0 sm:flex sm:flex-col sm:items-center sm:justify-center sm:mt-[12rem]">
+              <div className=" bg-white text-xl max-w-max backdrop-blur-lg
+mx-8
+max-h-max
+p-3
+font-semibold sm:bg-white sm:text-xl sm:max-w-max sm:backdrop-blur-lg sm:mx-8 sm:max-h-max sm:p-3 sm:font-semibold">
                 {quoteAtLeft}
               </div>
               <button
                 onClick={() => removeQuote(quoteAtLeft)}
-                className="bg-red-700 mt-[6rem] px-6 py-2 text-white font-semibold"
+                className="bg-red-700 mt-[2rem] px-6 font-semibold text-white py-2 sm:bg-red-700 sm:mt-[6rem] sm:px-6 sm:py-2 sm:text-white sm:font-semibold"
               >
                 Remove
               </button>
