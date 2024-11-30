@@ -13,8 +13,10 @@ function Homepage() {
   const [bigLike, setBigLike] = useState(false);
   const [savedQuotes, setSavedQuotes] = useState([]);
   const [showLiked, setShowLiked] = useState(false);
-
-
+  
+  
+  console.log(savedQuotes)
+  console.log("project is running perfely")
 
   const qouteFetch = async () => {
     const data = await fetch("https://quotes-api-self.vercel.app/quote");
@@ -74,13 +76,14 @@ function Homepage() {
   // ${showLiked?"blur-lg":""}
 
   const likedQuotes = (quote) => {
+    
     if (!savedQuotes.includes(quote)) {
       const updatedQuotes = [...savedQuotes, quote];
       setSavedQuotes(updatedQuotes);
       localStorage.setItem("likedQuotes", JSON.stringify(updatedQuotes));
     }
-
-    // console.log(savedQuotes)
+    
+    
   };
   return (
     <div
@@ -101,9 +104,14 @@ function Homepage() {
             </div>
             {liked ? (
               <FaHeart
-                onClick={() => {
-                  likedQuotes(Qoute), likeToggle();
-                }}
+                onClick={
+
+                  likedQuotes(Qoute)
+                  // likeToggle()
+                
+                
+                    
+                }
                 className="sm:text-3xl sm:cursor-pointer sm:text-red-500 text-5xl
                 text-red-500 cursor-pointer"
               />
@@ -162,10 +170,10 @@ border-2 items-center"
         </div>
       </div>
       <Likedpage
-        setSavedQuotes={setSavedQuotes}
         likedSectionToggle={likedSectionToggle}
         showLiked={showLiked}
         savedQuotes={savedQuotes}
+        setSavedQuotes={setSavedQuotes}
      
       />
     </div>
