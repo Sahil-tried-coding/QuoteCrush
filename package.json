@@ -15,7 +15,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
-    "tailwindcss": "^3.4.15"
+    "tailwindcss": "^3.4.15",
+    "uvcanvas": "^0.2.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

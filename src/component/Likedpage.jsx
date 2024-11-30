@@ -36,12 +36,12 @@ function Likedpage({ likedSectionToggle, showLiked, savedQuotes, setSavedQuotes 
         {showLiked && (
           <div>
             {/* Liked Quotes List */}
-            <div className="z-10 overflow-y-scroll min-h-[50%] w-full absolute bottom-0 backdrop-blur-3xl bg-custom-gradient transition-all duration-300 ease-out sm:h-[100vh] sm:w-[50vw] sm:top-0 sm:right-0">
+            <div className="z-10 overflow-y-scroll sm:overflow-y-scroll max-h-[50%] w-full absolute bottom-0 backdrop-blur-3xl bg-custom-gradient transition-all duration-300 ease-out sm:min-h-[100vh] sm:w-[50vw] sm:top-0 sm:right-0 ">
               {savedQuotes.map((item, index) => (
                 <div
                   key={index}
                   onClick={() => quoteAtLeftSide(item)}
-                  className="cursor-pointer  border-b-2 border-black p-2 rounded-md hover:bg-black hover:text-white"
+                  className="cursor-pointer  border-b-2 border-black p-2  hover:bg-black hover:text-white"
                 >
                   {item}
                 </div>
@@ -49,18 +49,18 @@ function Likedpage({ likedSectionToggle, showLiked, savedQuotes, setSavedQuotes 
             </div>
 
             {/* Quote Display and Remove Button */}
-            <div className="max-h-[50%] w-full absolute top-[8.2rem] flex flex-col items-center justify-center sm:h-screen sm:w-[50vw] sm:top-0 sm:left-0 sm:mt-[12rem]">
+            <div className="max-h-[50%] l w-full absolute top-[8.2rem] flex flex-col items-center justify-center sm:h-screen sm:w-[50vw] sm:top-0 sm:left-0 sm:mt-[12rem]">
               <div className="bg-white text-xl max-w-max backdrop-blur-lg mx-8 p-3 font-semibold">
                 {quoteAtLeft}
               </div>
-              {quoteAtLeft !== "No quote selected!" && (
+              {/* {quoteAtLeft !== "No quote selected!" && (
                 <button
                   onClick={() => removeQuote(quoteAtLeft)}
                   className="bg-red-700 mt-[2rem] px-6 font-semibold text-white py-2 sm:mt-[6rem]"
                 >
                   Remove
                 </button>
-              )}
+              )} */}
             </div>
           </div>
         )}

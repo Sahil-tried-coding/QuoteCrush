@@ -5,6 +5,9 @@ import img from "../assets/1729449055_twitter-logo-square shape-png.png";
 import { FaHeart } from "react-icons/fa";
 // import { FaHeart } from "react-icons/fa6";
 import Likedpage from "./Likedpage";
+import { Lumiflex } from "uvcanvas"
+import bg from "../assets/ooorganize.svg"
+
 function Homepage() {
   const [Qoute, setQoute] = useState(null);
   const [Author, setAuthor] = useState();
@@ -15,8 +18,6 @@ function Homepage() {
   const [showLiked, setShowLiked] = useState(false);
   
   
-  console.log(savedQuotes)
-  console.log("project is running perfely")
 
   const qouteFetch = async () => {
     const data = await fetch("https://quotes-api-self.vercel.app/quote");
@@ -25,6 +26,11 @@ function Homepage() {
     setQoute(respones.quote);
     setLiked(false);
   };
+
+
+  const twitter = () =>{
+    window.open(`https://twitter.com/intent/tweet?text=${Qoute}~${Author}`)
+  }
 
 
   useEffect(() => {
@@ -87,18 +93,20 @@ function Homepage() {
   };
   return (
     <div
-      className={`w-screen h-screen overflow-y-hidden bg-black  sm:z-0 sm:relative sm:w-[100vw] sm:h-[100vh] sm:bg-black`}
+      className={" w-screen h-screen overflow-y-hidden bg-black    sm:z-0 sm:relative sm:w-[100vw] sm:h-[100vh] sm:bg-custom-bg bg-custom-bg " }
     >
+      {/* <img src={bg} alt="" /> */}
+      {/* <Lumiflex className="-z-20" /> */}
       <div
         className={`${
           showLiked ? "blur-lg sm:blur-lg" : ""
         } sm:z-0 sm:w-[100vw] sm:h-[100vh] sm:flex sm:flex-col sm:justify-center sm:items-center sm:text-white w-full h-full text-white flex flex-col items-center justify-center`}
       >
-        <div className="sm:flex-col sm:mx-auto flex-col mx-auto">
+        <div className="sm:flex-col sm:mx-auto flex-col mx-auto" >
           <div className="sm:flex sm:items-center sm:gap-4 gap-4 flex flex-col sm:flex-row items-center">
             <div
-              className="sm:font-semibold sm:text-lg sm:max-h-max sm:min-w-[60%] sm:max-w-[80%] sm:border-2 sm:border-purple-600 sm:mx-auto sm:text-white sm:py-8 sm:px-7 
-            font-semibold text-lg max-h-max border-2 border-purple-600 text-white py-8 px-7"
+              className="sm:font-semibold sm:text-lg sm:max-h-max sm:min-w-[60%] sm:max-w-[80%] sm:border-2 sm:border-gray-100 sm:mx-auto sm:text-white sm:py-8 sm:px-7 
+            font-semibold text-lg max-h-max border-2 border-gray-100 text-white py-8 px-7 mx-4"
             >
               <div>{Qoute}</div>
             </div>
@@ -142,13 +150,14 @@ function Homepage() {
         <div className="sm:flex sm:justify-between sm:gap-4 flex justify-evenly items-center gap-4">
           <button
             onClick={qouteFetch}
-            className="w-[200px] h-[60px] rounded-2xl p-2 bg-purple-600 sm:rounded-2xl sm:w-[250px] sm:p-2 sm:border-2 sm:border-dashed sm:border-white sm:bg-purple-500 sm:px-6 sm:py-3 sm:font-semibold sm:uppercase sm:text-white sm:transition-all sm:duration-300 sm:hover:translate-x-[-4px] sm:hover:translate-y-[-4px] sm:hover:rounded-md sm:hover:shadow-[4px_4px_0px_black] sm:active:translate-x-[0px] sm:active:translate-y-[0px] sm:active:rounded-2xl sm:active:shadow-none ml-3
+            className="w-[180px] h-[60px] rounded-2xl p-2 bg-purple-600 sm:rounded-2xl sm:w-[250px] sm:p-2 sm:border-2 sm:border-dashed sm:border-white sm:bg-purple-500 sm:px-6 sm:py-3 sm:font-semibold sm:uppercase sm:text-white sm:transition-all sm:duration-300 sm:hover:translate-x-[-4px] sm:hover:translate-y-[-4px] sm:hover:rounded-md sm:hover:shadow-[4px_4px_0px_black] sm:active:translate-x-[0px] sm:active:translate-y-[0px] sm:active:rounded-2xl sm:active:shadow-none ml-3
            "
           >
             Next Quote
           </button>
           <button
-            className="sm:font-semibold sm:border-purple-600 sm:justify-center sm:gap-3 sm:flex sm:flex-row sm:p-2 sm:border-2 sm:bg-white sm:text-black sm:w-[250px] h-[50px] w-[200px] text-black bg-white font-semibold 
+          onClick={()=>twitter()}
+            className="sm:font-semibold sm:border-purple-600 sm:justify-center sm:gap-3 sm:flex sm:flex-row sm:p-2 sm:border-2 sm:bg-white sm:text-black sm:w-[250px] h-[50px] w-[180px] text-black bg-white font-semibold 
 border-purple-600 
 justify-center 
 gap-3 
