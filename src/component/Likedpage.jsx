@@ -36,7 +36,7 @@ function Likedpage({ likedSectionToggle, showLiked, savedQuotes, setSavedQuotes 
         {showLiked && (
           <div>
             {/* Liked Quotes List */}
-            <div className="z-10 overflow-y-scroll sm:overflow-y-scroll max-h-[50%] w-full absolute bottom-0 backdrop-blur-3xl bg-custom-gradient transition-all duration-300 ease-out sm:min-h-[100vh] sm:w-[50vw] sm:top-0 sm:right-0 ">
+            <div className="z-10 min-h-[50%] overflow-y-scroll sm:overflow-y-scroll max-h-[50%] w-full absolute bottom-0 backdrop-blur-3xl bg-custom-gradient transition-all duration-300 ease-out sm:min-h-[100vh] sm:w-[50vw] sm:top-0 sm:right-0 ">
               {savedQuotes.map((item, index) => (
                 <div
                   key={index}
